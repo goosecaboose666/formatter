@@ -62,10 +62,11 @@ graph TD
     -   File stored securely.
     -   Background task triggered for scrubbing.
 
-2.  **Scrubbing & Formatting:**
-    -   Text extracted from file (PDF, DOCX, etc.).
-    -   Images/Ads removed.
-    -   Text chunked for AI processing.
+2.  **Scrubbing & Formatting (No-AI):**
+    -   **Strictly deterministic:** No LLM usage in this phase to conserve costs and resources.
+    -   **Extraction:** Uses `unstructured`, `PyPDF2`, `python-docx`, `BeautifulSoup4` to extract raw text.
+    -   **Cleaning:** Regex and rule-based scrubbing to remove ads, navigation links, emails, excessive whitespace, and non-content artifacts.
+    -   **Formatting:** Text is normalized and chunked specifically to optimize the downstream AI context window.
 
 3.  **Generation:**
     -   Chunks sent to LLM to generate Q&A pairs.
