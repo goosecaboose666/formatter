@@ -1,0 +1,7 @@
+This is a simple text file.
+It contains some    extra    whitespace.
+And a link: https://example.com/ad-tracking?id=123
+And an email: contact@spam-me.com
+
+--
+Footer stuff here
